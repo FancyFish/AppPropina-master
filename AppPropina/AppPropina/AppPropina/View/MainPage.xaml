@@ -1,27 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:AppPropina"
+             xmlns:local="clr-namespace:AppPropina.ViewModel"
              x:Class="AppPropina.View.MainPage">
 
-    <TableView Intent ="Form"
-               HasUnevenRows="True">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:PropinaViewModel x:key="proVM">
+                
+                
+            </local:PropinaViewModel>
+        </ResourceDictionary>
+     </ContentPage.Resources>
+    
+    <TableView  BindingContext="{Binding Source={StaticResource ProVM}}"
+                Intent ="Form"
+                HasUnevenRows="True">
         
         <TableSection Title="Datos Generales">
             <EntryCell x:Name="entTotal"
                       Label="Total"
                       Placeholder="$0.0"
-                      >
+                       Text="{Binding PropinaModel.Total, Mode=TwoWay}">
                 
             </EntryCell>
             <EntryCell x:Name="entPropina"
                       Label="propina"
-                      Placeholder="%">
+                      Placeholder="%"
+                      Text="{Binding PropinaModel.TotalPropina , Mode=TwoWay}">
 
             </EntryCell>
             <EntryCell x:Name="entPersonas"
                       Label="Numero de Personas"
-                      Placeholder="Ingrese Numero de Personas">
+                      Placeholder="Ingrese Numero de Personas"
+                        Text="{Binding PropinaModel.Personas ,Mode=TwoWay">
+                
 
             </EntryCell>
         </TableSection>
@@ -30,7 +43,8 @@
                 <ViewCell.View>
                     <StackLayout>
                         <Button Text="Calcular"
-                                x:Name="btnCarcular">
+                                x:Name="btnCarcular"
+                                Command="{Banding CalcularCommant}">
                                 
                         </Button>
                         <Image Source="icon.png"
@@ -43,13 +57,15 @@
         </TableSection>
         <TableSection Title="Resultado">
             <TextCell x:Name="TxtTotalPropina"
-                     Text="Propina"
-                      Detail="$0;0">
+                     Detail="{Binding  PropinaViewModel.TotalPropina}"
+                      
+                      >
                 
             </TextCell>
             <TextCell x:Name="TxtTotal"
                      Text="Total"
-                      Detail="$0;0">
+                      Detail="$0;0"
+                      >
 
             </TextCell>
             <TextCell x:Name="TxtPropinaPersona"

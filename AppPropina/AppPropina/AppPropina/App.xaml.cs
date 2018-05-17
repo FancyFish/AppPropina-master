@@ -13,7 +13,7 @@ namespace AppPropina
 		{
 			InitializeComponent();
 
-			MainPage = new AppPropina.MainPage();
+			MainPage = new AppPropina.View.MainPage();
 		}
 
 		protected override void OnStart ()

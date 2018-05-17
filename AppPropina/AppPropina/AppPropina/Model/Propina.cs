@@ -44,7 +44,7 @@ namespace AppPropina.Model
         }
       
 
-        public int NumeroPersonas
+        public int Personas
         {
             get { return personas; }
             set
