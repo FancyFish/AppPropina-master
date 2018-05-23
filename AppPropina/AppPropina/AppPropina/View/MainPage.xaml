@@ -6,7 +6,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:PropinaViewModel x:key="proVM">
+            <local:PropinaViewModel x:Key="ProVM">
                 
                 
             </local:PropinaViewModel>
@@ -33,7 +33,7 @@
             <EntryCell x:Name="entPersonas"
                       Label="Numero de Personas"
                       Placeholder="Ingrese Numero de Personas"
-                        Text="{Binding PropinaModel.Personas ,Mode=TwoWay">
+                        Text="{Binding PropinaModel.Personas ,Mode=TwoWay}">
                 
 
             </EntryCell>
@@ -44,7 +44,7 @@
                     <StackLayout>
                         <Button Text="Calcular"
                                 x:Name="btnCarcular"
-                                Command="{Banding CalcularCommant}">
+                                Command="{Binding CalcularCommant}">
                                 
                         </Button>
                         <Image Source="icon.png"
